@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beadsz | All Products</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* copied logo styling from index.html */
+    .navbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #3d2a54;
+    }
+
+    .navbar .logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .navbar .logo .logo-icon img,
+    .navbar .logo .logo-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .navbar .logo span {
+      line-height: 1;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (same as index) -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon" aria-hidden="true">
+        <img src="assets/logo.svg" alt="">
+      </span>
+      <span>Beads Z</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="/products.html">Collections</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="icons">
+      <button class="icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="icon" aria-label="Favorites"><i class="fa-regular fa-heart"></i></button>
+      <button class="icon" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+      <button class="icon cart" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <!-- All Products Section -->
+  <section class="collection all-products" id="allProducts">
+    <h2>All Products ✨</h2>
+    <p class="collection-subtitle">Explore every bead, charm, and DIY kit we offer 💖</p>
+
+    <div class="collection-grid">
+      <!-- Original 4 products from index.html -->
+      <div class="product-card">
+        <a href="product-detail-1.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/rosegoldrl.jpg" alt="Rose Gold Glass Beads Collection" />
+            <span class="tag">Glass Beads</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Rose Gold Glass Beads Collection</h3>
+            <div class="price">
+              <span class="amount">₹2,099</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-2.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/premiumcrystal.jpg" alt="Premium Crystal & Gemstone Mix" />
+            <span class="tag">Crystals</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Premium Crystal & Gemstone Mix</h3>
+            <div class="price">
+              <span class="amount">₹2,899</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-3.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/naturalwooden.jpg" alt="Natural Wooden Beads Set" />
+            <span class="tag">Wooden</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Natural Wooden Beads Set</h3>
+            <div class="price">
+              <span class="amount">₹1,699</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-4.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/midenightbloom.jpg" alt="Midnight Bloom" />
+            <span class="tag">DIY Kit</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Midnight Bloom</h3>
+            <div class="price">
+              <span class="amount">₹4,199</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Additional 8 new products -->
+      <div class="product-card">
+        <a href="product-detail-5.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/pastel rainbow mix.jpg" alt="Pastel Rainbow Mix" />
+            <span class="tag">Mixed Beads</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Pastel Rainbow Mix</h3>
+            <div class="price">
+              <span class="amount">₹1,899</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-6.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/pearlcollection.jpg" alt="Pearl Collection" />
+            <span class="tag">Pearls</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Pearl Collection</h3>
+            <div class="price">
+              <span class="amount">₹2,499</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-7.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/summercharm.jpg" alt="Summer Fruit Charms Set" />
+            <span class="tag">Charms</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Summer Fruit Charms Set</h3>
+            <div class="price">
+              <span class="amount">₹1,299</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-8.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/butterfly.jpg" alt="Butterfly Garden Collection" />
+            <span class="tag">Mixed Set</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Butterfly Garden Collection</h3>
+            <div class="price">
+              <span class="amount">₹3,499</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-9.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/starterkit.jpg" alt="Starter DIY Kit" />
+            <span class="tag">DIY Kit</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Starter DIY Kit</h3>
+            <div class="price">
+              <span class="amount">₹1,999</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-10.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/crystalheart.jpg" alt="Crystal Heart Charms" />
+            <span class="tag">Charms</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Crystal Heart Charms</h3>
+            <div class="price">
+              <span class="amount">₹899</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-11.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/metalspacer.jpg" alt="Metallic Spacer Beads" />
+            <span class="tag">Metal Beads</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Metallic Spacer Beads</h3>
+            <div class="price">
+              <span class="amount">₹1,299</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="product-card">
+        <a href="product-detail-12.html" class="product-link">
+          <div class="product-img">
+            <img src="productimages/zodiac.jpg" alt="Zodiac Charm Collection" />
+            <span class="tag">Charms</span>
+            <i class="fa-regular fa-heart favorite"></i>
+          </div>
+          <div class="product-info">
+            <h3>Zodiac Charm Collection</h3>
+            <div class="price">
+              <span class="amount">₹2,699</span>
+              <span class="unit">Per pack</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="view-all-wrapper">
+      <a href="index.html#shopCollection" class="show-less-btn">
+        Show Less Products
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col brand">
+        <div class="logo">Beadsz</div>
+        <p>Dreamy handmade jewelry supplies, crafted with love and aesthetic vibes 💖</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Beads</a></li>
+          <li><a href="#">Charms</a></li>
+          <li><a href="#">DIY Kits</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Shipping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Beadsz. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

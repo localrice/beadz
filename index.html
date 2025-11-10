@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beads Z | Cute Beaded Jewelry</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .join-community {
+      background: linear-gradient(135deg, #ffe5f8, #f9f0ff);
+      text-align: center;
+      padding: 4rem 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .community-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .join-community h2 {
+      font-family: 'Playfair Display', serif;
+      color: #3d2a54;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .join-community p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .community-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .community-buttons .btn {
+      border-radius: 50px;
+      padding: 0.9rem 1.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .shop-btn {
+      background: linear-gradient(135deg, #ff5fa2, #ff7ab5);
+      color: white;
+      box-shadow: 0 5px 15px rgba(255, 95, 162, 0.3);
+    }
+
+    .follow-btn {
+      background: linear-gradient(135deg, #c991ff, #a16eff);
+      color: white;
+      box-shadow: 0 5px 15px rgba(169, 110, 255, 0.3);
+    }
+
+    .community-buttons .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-email {
+      margin-top: 2rem;
+    }
+
+    .contact-email p {
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .email-link {
+      background: white;
+      border-radius: 30px;
+      padding: 0.6rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #4B2C5E;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .email-link i {
+      color: #E56EE6;
+    }
+
+    .email-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+
+    .customer-showcase {
+      background: #fff9fc;
+      text-align: center;
+      padding: 5rem 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .showcase-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .customer-showcase h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      color: #3a234d;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #7b6a91;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .showcase-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      aspect-ratio: 1 / 1;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .showcase-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .showcase-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(229, 110, 230, 0.15);
+    }
+
+    .showcase-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 10%, rgba(229,110,230,0.75) 100%);
+      color: white;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .showcase-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .overlay p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .showcase-footer {
+      margin-top: 3rem;
+    }
+
+    .showcase-footer p {
+      color: #7b6a91;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .tag-btn {
+      background: white;
+      border-radius: 30px;
+      padding: 0.6rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #4b2c5e;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .tag-btn i {
+      color: #e56ee6;
+    }
+
+    .tag-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(229,110,230,0.2);
+      color: #e56ee6;
+    }
+
+    /* logo image styling */
+    .navbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #3d2a54;
+    }
+
+    .navbar .logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .navbar .logo .logo-icon img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .navbar .logo span {
+      line-height: 1;
+      font-size: 1.1rem;
+      color: #d66ad6;
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon" aria-hidden="true">
+        <img src="assets/logo.svg" alt="">
+      </span>
+      <span>Beads Z</span>
+    </div>
+    <nav class="nav-links">
+      <a href="javascript:void()">Home</a>
+      <a href="/products.html">Collections</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="icons">
+      
+      <button class="icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="icon" aria-label="Favorites"><i class="fa-regular fa-heart"></i></button>
+      <button class="icon" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+      <button class="icon cart" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" aria-live="polite">0</span></button>
+    </div>
+  </header>
+
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1><span>Express Yourself</span><br>With Cute Beaded <br>Jewelry ✨</h1>
+      <p>Discover our dreamy collection of pastel beads and DIY jewelry kits. Handmade with love, styled for you 💖</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn primary">Shop Now</a>
+        <a href="#" class="btn secondary">DIY Kits</a>
+      </div>
+    </div>
+  </section>
+    
+  <section class="features">
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <h3>Handmade with Love</h3>
+      <p>Every piece is unique ✨</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fa-solid fa-truck-fast"></i>
+      </div>
+      <h3>Free Shipping</h3>
+      <p>On all orders over $30</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <h3>Made for You</h3>
+      <p>Express your style 💖</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+      <h3>Quality Promise</h3>
+      <p>Premium materials only</p>
+    </div>
+  </section>
+   
+  <section class="shop-vibe">
+    <h2>Shop by Vibe</h2>
+    <p class="vibe-subtitle">Find your perfect aesthetic ✨</p>
+
+    <div class="vibe-grid">
+      <div class="vibe-card">
+        <h3>Pastel Beads</h3>
+        <p>200+ styles</p>
+      </div>
+
+      <div class="vibe-card">
+        <h3>Crystal & Gems</h3>
+        <p>150+ pieces</p>
+      </div>
+
+      <div class="vibe-card">
+        <h3>Colorful Charms</h3>
+        <p>100+ cuties</p>
+      </div>
+
+      <div class="vibe-card">
+        <h3>DIY Kits</h3>
+        <p>50+ sets</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="collection" id="shopCollection">
+    <h2>Shop the Collection ✨</h2>
+    <p class="collection-subtitle">
+      Dreamy beads & accessories to create your perfect aesthetic 💖
+    </p>
+
+    <div class="collection-grid">
+      <div class="product-card">
+        <div class="product-img">
+          <img src="productimages/rosegold.jpg" alt="Rose Gold Glass Beads Collection" />
+          <span class="tag">Glass Beads</span>
+          <i class="fa-regular fa-heart favorite"></i>
+        </div>
+        <div class="product-info">
+          <h3>Rose Gold Glass Beads Collection</h3>
+          <div class="price">
+            <span class="amount">₹2,099</span>
+            <span class="unit">Per pack</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="productimages/rosegoldrl.jpg" alt="Rose Gold Glass Beads Collection" />
+          <span class="tag">Glass Beads</span>
+          <i class="fa-regular fa-heart favorite"></i>
+        </div>
+        <div class="product-info">
+          <h3>Rose Gold Glass Beads Collection</h3>
+          <div class="price">
+            <span class="amount">₹2,899</span>
+            <span class="unit">Per pack</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="productimages/naturalwood.jpg" alt="Natural Wooden Beads Set" />
+          <span class="tag">Wooden</span>
+          <i class="fa-regular fa-heart favorite"></i>
+        </div>
+        <div class="product-info">
+          <h3>Natural Wooden Beads Set<br><br></h3>
+          <div class="price">
+            <span class="amount">₹1,699</span>
+            <span class="unit">Per pack</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="productimages/DIY.jpg" alt="Complete DIY Jewelry Making Kit" />
+          <span class="tag">DIY Kit</span>
+          <i class="fa-regular fa-heart favorite"></i>
+        </div>
+        <div class="product-info">
+          <h3>Complete DIY Jewelry Making Kit</h3>
+          <div class="price">
+            <span class="amount">₹4,199</span>
+            <span class="unit">Per pack</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="view-all-wrapper">
+      <a href="products.html" class="view-all-btn">View All Products</a>
+    </div>
+  </section>
+
+  <!-- 🌸 Why Choose Beads Z Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <h2>Why Choose Beads Z? ✨</h2>
+      <p class="section-subtitle">Crafting dreams into reality, one bead at a time</p>
+
+      <div class="benefits-grid">
+      <div class="benefit-card">
+        <i class="fa-solid fa-gem"></i>
+        <h3>Premium Quality</h3>
+        <p>Carefully curated beads and materials that meet the highest standards.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Unique Designs</h3>
+        <p>Exclusive patterns and color combinations for standout pieces.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+        <h3>Handcrafted Care</h3>
+        <p>Each collection assembled with attention to detail and love.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-star"></i>
+        <h3>5-Star Rated</h3>
+        <p>Trusted by thousands of happy crafters worldwide.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 🌸 Customer Showcase Section -->
+  <section class="customer-showcase">
+    <div class="showcase-container">
+      <h2>Customer Showcase 🎨</h2>
+      <p class="subtitle">Beautiful creations from our talented community</p>
+
+      <div class="showcase-grid">
+        <div class="showcase-item">
+          <img src="productimages/butter1.jpg" alt="Butterfly Garden Collection">
+          <div class="overlay">
+            <h3>Butterfly Garden Collection</h3>
+            <p>@craftyluna</p>
+          </div>
+        </div>
+
+        <div class="showcase-item">
+          <img src="productimages/heart1.jpg" alt="Ocean Vibes Necklace">
+          <div class="overlay">
+            <h3>Ocean Vibes Necklace</h3>
+            <p>@beadqueen</p>
+          </div>
+        </div>
+
+        <div class="showcase-item">
+          <img src="productimages/zodiac1.jpg" alt="Sunset Anklet">
+          <div class="overlay">
+            <h3>Sunset Anklet</h3>
+            <p>@jewelryjoy</p>
+          </div>
+        </div>
+
+        <div class="showcase-item">
+          <img src="productimages/summer2.jpg" alt="Garden Party Earrings">
+          <div class="overlay">
+            <h3>Garden Party Earrings</h3>
+            <p>@floralbeads</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="showcase-footer">
+        <p>Share your creations with us!</p>
+        <a href="https://www.instagram.com/explore/tags/BeadsZCreations/" target="_blank" class="tag-btn">
+          <i class="fa-brands fa-instagram"></i> Tag us #BeadsZCreations
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌸 What Our Crafters Say Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Crafters Say 💕</h2>
+      <p class="section-subtitle">Real reviews from our amazing Northeast Indian community</p>
+
+      <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="user-badge">AP</div>
+        <h3>Amika P.</h3>
+        <div class="stars">★★★★★</div>
+        <p>"Absolutely loved the rose gold beads! They sparkle beautifully and remind me of our local festivals ✨"</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-badge">TM</div>
+        <h3>Techi M.</h3>
+        <div class="stars">★★★★★</div>
+        <p>"Fast delivery and such cute packaging! I made a charm bracelet for my sister — she adored it 💖"</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-badge">LT</div>
+        <h3>Lalmuan T.</h3>
+        <div class="stars">★★★★★</div>
+        <p>"The DIY kit was perfect for beginners like me. I loved the step-by-step guide and soft pastel beads 💕"</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-badge">KS</div>
+        <h3>Kenei S.</h3>
+        <div class="stars">★★★★★</div>
+        <p>"Beads Z quality is unmatched! These beads are perfect for my handmade jewelry small business 🪞"</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-badge">NR</div>
+        <h3>Ningre R.</h3>
+        <div class="stars">★★★★★</div>
+        <p>"Beautiful pastel colors and great texture. Feels premium and so easy to design with 🌷"</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-badge">TP</div>
+        <h3>Taren P.</h3>
+        <div class="stars">★★★★★</div>
+        <p>"Loved everything about Beads Z! Great products, helpful service, and perfect for gifting 🎁"</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 🌸 Join Our Community Section -->
+  <section class="join-community">
+    <div class="community-container">
+      <h2>Join Our Community ✨</h2>
+      <p>Ready to start your creative journey? Explore our collections or follow us for daily inspiration!</p>
+      
+      <div class="community-buttons">
+        <a href="products.html" class="btn shop-btn">Shop Now</a>
+        <a href="https://www.instagram.com/beadsz_official" target="_blank" class="btn follow-btn">
+          <i class="fa-brands fa-instagram"></i> Follow Us
+        </a>
+      </div>
+
+      <div class="contact-email">
+        <p>Have questions? We'd love to hear from you!</p>
+        <a href="mailto:hello@beadsz.com" class="email-link">
+          <i class="fa-regular fa-envelope"></i> hello@beadsz.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".hero-content").classList.add("fade-in");
+    });
+  </script>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col brand">
+        <div class="logo">Beads Z</div>
+        <p>Dreamy handmade jewelry supplies, crafted with love and aesthetic vibes 💖</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Beads</a></li>
+          <li><a href="#">Charms</a></li>
+          <li><a href="#">DIY Kits</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Shipping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Beads Z. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Beads Z</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        .about-hero {
+            padding: 120px 5% 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffe5f8, #f9f0ff);
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #4B2C5E;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .brand-story {
+            padding: 80px 5%;
+            background: #fff;
+        }
+
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(229, 110, 230, 0.15);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: #4B2C5E;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .values-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #fff6ff 0%, #fff 100%);
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(229, 110, 230, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #E56EE6;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: #4B2C5E;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .team-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* Changed from 4 to 5 columns */
+            gap: 1.2rem; /* Reduced gap for 5 columns */
+            padding: 0 1rem;
+        }
+
+        /* Update responsive breakpoints for 5 columns */
+        @media (max-width: 1200px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Adjust team card for better fit */
+        .team-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(229, 110, 230, 0.1);
+            height: 100%; /* Ensure equal height */
+        }
+
+        .team-img {
+            width: 100%;
+            height: 250px; /* Slightly reduced height */
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h3 {
+            color: #4B2C5E;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .team-info p {
+            color: #E56EE6;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #666;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #E56EE6;
+        }
+
+        @media (max-width: 768px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .story-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* copied logo styling from index.html */
+        .navbar .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: #3d2a54;
+        }
+
+        .navbar .logo .logo-icon {
+            width: 36px;
+            height: 36px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .navbar .logo .logo-icon img,
+        .navbar .logo .logo-icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .navbar .logo span {
+            line-height: 1;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon" aria-hidden="true">
+                <img src="assets/logo.svg" alt="">
+            </span>
+            <span>Beads Z</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Collections</a>
+            <a href="about.html">About</a>
+        </nav>
+        <div class="icons">
+            <button class="icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="icon" aria-label="Favorites"><i class="fa-regular fa-heart"></i></button>
+            <button class="icon" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+            <button class="icon cart" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></button>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <h1>Our Story ✨</h1>
+        <p>Welcome to Beads Z, where creativity meets craftsmanship in a world of beautiful beads and jewelry making supplies.</p>
+    </section>
+
+    <section class="brand-story">
+        <div class="story-container">
+            <div class="story-image">
+                <img src="productimages/pearl1.jpg" alt="Our Workshop">
+            </div>
+            <div class="story-content">
+                <h2>Crafting Dreams Since 2020</h2>
+                <p>Born from a passion for creating beautiful jewelry, Beads Z started as a small workshop in Northeast India. Today, we're proud to be a cherished part of the creative community, providing high-quality beads and supplies to crafters worldwide.</p>
+                <p>Our mission is to inspire creativity and self-expression through our carefully curated collection of beads, charms, and DIY kits. Each product is selected with love and attention to detail, ensuring that our customers have access to the best materials for their creative journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Made with Love</h3>
+                <p>Every product is carefully selected and packaged with attention to detail and care.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-gem"></i>
+                <h3>Quality First</h3>
+                <p>We source only the finest materials to ensure your creations stand the test of time.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-earth-asia"></i>
+                <h3>Sustainability</h3>
+                <p>Committed to eco-friendly packaging and responsible sourcing practices.</p>
+            </div>
+            <div class="value-card">
+                <i class="fa-solid fa-users"></i>
+                <h3>Community</h3>
+                <p>Building a supportive community of creative crafters and makers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="assets/team1.jpg" alt="Harsh Kumar" class="team-img">
+                <div class="team-info">
+                    <h3>Harsh Kumar</h3>
+                    <p>Founder & Creative Director</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="assets/team2.jpg" alt="Tushar Boro" class="team-img">
+                <div class="team-info">
+                    <h3>Tushar Boro</h3>
+                    <p>Product Curator</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="assets/team3.jpg" alt="Albina" class="team-img">
+                <div class="team-info">
+                    <h3>Albina</h3>
+                    <p>Community Manager</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <img src="assets/team4.jpg" alt="Nishant Kumar" class="team-img">
+                <div class="team-info">
+                    <h3>Nishant Kumar</h3>
+                    <p>Operations Manager</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add fifth team member -->
+            <div class="team-card">
+                <img src="assets/team5.jpg" alt="Sarah Chen" class="team-img">
+                <div class="team-info">
+                    <h3>Sarah Chen</h3>
+                    <p>Design Specialist</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col brand">
+                <div class="logo">Beads Z</div>
+                <p>Dreamy handmade jewelry supplies, crafted with love and aesthetic vibes 💖</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a   >
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Beads</a></li>
+                    <li><a href="#">Charms</a></li>
+                    <li><a href="#">DIY Kits</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Shipping</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Beads Z. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

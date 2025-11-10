@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rose Gold Glass Beads Collection | Beads Z</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #fcfcfc;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .product-detail {
+      background: linear-gradient(to bottom, #ffffff, #fafafa);
+      padding: 3rem 2rem;
+      margin: 2rem auto;
+      border-radius: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      max-width: 1200px;
+    }
+
+    .payment-modal {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 9999;
+        overflow: hidden; /* Changed from overflow-y: auto */
+        padding: 0; /* Remove padding */
+    }
+
+    .payment-modal[style*="display: flex"] {
+        display: flex !important;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .payment-modal .modal-content {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2rem;
+        width: 90%;
+        max-width: 600px;
+        margin: auto;
+        position: relative;
+        animation: modalSlideIn 0.3s ease-out;
+        max-height: 90vh; /* Changed from calc(100vh - 4rem) */
+        overflow-y: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .payment-modal .modal-content::-webkit-scrollbar {
+        display: none;  /* Chrome, Safari and Opera */
+    }
+
+    @keyframes modalSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .close-modal {
+        position: sticky;
+        top: 1rem;
+        right: 1rem;
+        float: right;
+        font-size: 1.8rem;
+        background: white;
+        border: none;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        margin-bottom: 1rem;
+    }
+
+    .checkout-step .btn.primary {
+        position: sticky;
+        bottom: 0;
+        margin-top: 1.5rem;
+        width: 100%;
+        background: linear-gradient(135deg, #e56ee6 0%, #ff9ee9 100%);
+        box-shadow: 0 -5px 15px rgba(229, 110, 230, 0.1);
+        z-index: 1;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .success-modal {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 9999;
+        overflow: hidden; /* Changed from overflow-y: auto */
+        padding: 0; /* Remove padding */
+    }
+
+    .success-modal.show {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .success-content {
+        background: #fff;
+        border-radius: 24px;
+        padding: 2.5rem;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        margin: auto;
+        animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        max-height: 90vh;
+        overflow-y: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .success-content::-webkit-scrollbar {
+        display: none;  /* Chrome, Safari and Opera */
+    }
+
+    .checkmark-circle {
+        width: 80px;
+        height: 80px;
+        position: relative;
+        margin: 0 auto 2rem;
+    }
+
+    .checkmark-circle-bg {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+        border: 2px solid #E56EE6;
+        animation: circlePop 0.3s ease-out forwards;
+    }
+
+    .checkmark {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .checkmark circle {
+        fill: none;
+        stroke: #E56EE6;
+        stroke-width: 2;
+        stroke-linecap: round;
+        opacity: 0;
+        animation: circleAnim 0.3s ease-out 0.3s forwards;
+    }
+
+    .checkmark-check {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        stroke-width: 2.5;
+        stroke: #E56EE6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        animation: checkAnim 0.4s ease-out 0.5s forwards;
+    }
+
+    @keyframes modalPop {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes circlePop {
+        0% {
+            transform: scale(0.3);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes circleAnim {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes checkAnim {
+        0% {
+            stroke-dashoffset: 48;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    .success-content h2 {
+        color: #4B2C5E;
+        margin: 0 0 0.5rem;
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+    }
+
+    .success-content p {
+        color: #666;
+        margin: 0 0 1.5rem;
+    }
+
+    .success-details {
+        background: rgba(229, 110, 230, 0.05);
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+
+    .success-details p {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+    }
+
+    .success-actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .success-actions .btn {
+        flex: 1;
+        padding: 0.8rem;
+        border-radius: 12px;
+        font-weight: 500;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .success-actions .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(229, 110, 230, 0.2);
+    }
+
+    .success-actions .btn.primary {
+        background: linear-gradient(135deg, #e56ee6 0%, #ff9ee9 100%);
+        color: white;
+        border: none;
+    }
+
+    .success-actions .btn.secondary {
+        background: white;
+        color: #E56EE6;
+        border: 2px solid rgba(229, 110, 230, 0.2);
+        text-decoration: none;
+    }
+
+    /* Shop by Collection Styles */
+    .shop-collection {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .shop-collection h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #4B2C5E;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: linear-gradient(145deg, #ffffff, #fafafa);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(229, 110, 230, 0.12);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-card .card-content {
+      padding: 1.8rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #4B2C5E;
+      margin: 0 0 0.8rem;
+      line-height: 1.4;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      color: #E56EE6;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .price .unit {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .btn {
+      padding: 0.9rem 1.5rem;
+      border-radius: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #e56ee6 0%, #ff9ee9 100%);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 15px rgba(229, 110, 230, 0.2);
+    }
+
+    .btn.primary:hover {
+      box-shadow: 0 6px 20px rgba(229, 110, 230, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .product-description {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .product-description h3 {
+      color: #4B2C5E;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .product-description p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-description ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .product-description li {
+      color: #555;
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .product-description li::before {
+      content: "•";
+      color: #E56EE6;
+      font-size: 1.5em;
+    }
+
+    /* Add these new styles */
+    .modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+    }
+
+    .product-modal {
+      max-width: 900px;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+    }
+
+    .modal-product-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .modal-product-gallery img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .product-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .main-image {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .thumbnail-list {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .thumbnail-list img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .thumbnail-list img:hover {
+      opacity: 0.8;
+    }
+
+    .thumbnail-list img.active {
+      opacity: 1;
+      box-shadow: 0 0 0 2px #E56EE6;
+    }
+
+    @media (max-width: 768px) {
+      .modal-product-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Beads Z</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="/products.html">Collections</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="icons">
+      <button class="icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="icon" aria-label="Favorites"><i class="fa-regular fa-heart"></i></button>
+      <button class="icon" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+      <button class="icon cart" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" aria-live="polite">0</span></button>
+    </div>
+  </header>
+
+  <section class="product-detail">
+    <div class="product-container">
+      <div class="product-gallery">
+        <div class="main-image">
+          <img src="productimages/pastel rainbow mix.jpg" alt="Rose Gold Glass Beads Collection" id="mainImage" />
+        </div>
+        <div class="thumbnail-list">
+          <img src="productimages/pastel rainbow mix.jpg" alt="Rose Gold Front View" class="active" onclick="changeImage(this)" />
+          <img src="productimages/pearl1.jpg" alt="Rose Gold Side View" onclick="changeImage(this)" />
+          <img src="productimages/pearl3.jpg" alt="Rose Gold Close Up" onclick="changeImage(this)" />
+        </div>
+      </div>
+
+      <div class="product-info-detail">
+        <span class="tag">Glass Beads</span>
+        <h1>Pastel Rainbow Mix Beads</h1>
+        <div class="price">
+          <span class="amount">₹2,099</span>
+          <span class="unit">Per pack</span>
+        </div>
+
+        <div class="product-actions">
+          <div class="quantity">
+            <button class="qty-btn" onclick="updateQty(-1)"><i class="fa-solid fa-minus"></i></button>
+            <input type="number" value="1" min="1" id="qty">
+            <button class="qty-btn" onclick="updateQty(1)"><i class="fa-solid fa-plus"></i></button>
+          </div>
+          <button class="btn primary buy-now"><i class="fa-solid fa-shopping-bag"></i> Buy Now</button>
+          <button class="btn secondary"><i class="fa-regular fa-heart"></i></button>
+        </div>
+
+        <div class="product-description">
+          <h3>Description</h3>
+          <p>A stunning collection of rose gold glass beads perfect for creating elegant jewelry pieces. Each bead is carefully selected for its quality and shine.</p>
+          
+          <h3>What's Included</h3>
+          <ul>
+            <li>100+ rose gold glass beads</li>
+            <li>Assorted sizes (4mm - 8mm)</li>
+            <li>Storage container</li>
+            <li>Basic instruction guide</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Modal -->
+  <div id="paymentModal" class="payment-modal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>Complete Your Purchase</h2>
+
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-item">
+          <span>Product:</span>
+          <span id="modalProductName">Rose Gold Glass Beads Collection</span>
+        </div>
+        <div class="summary-item">
+          <span>Quantity:</span>
+          <span id="modalQuantity">1</span>
+        </div>
+        <div class="summary-item">
+          <span>Price per pack:</span>
+          <span id="modalPrice">₹2,099</span>
+        </div>
+        <div class="summary-item total">
+          <span>Total Amount:</span>
+          <span id="modalTotal">₹2,099</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Buyer Details -->
+      <div id="stepDetails" class="checkout-step">
+        <h3>Contact Details</h3>
+        <form id="detailsForm">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="e.g. +91 9876543210" pattern="[0-9]{10}" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Shipping Address</label>
+            <textarea id="address" rows="2" placeholder="Enter your address" required></textarea>
+          </div>
+          <button type="button" class="btn primary" id="continueToPayment">Continue to Payment</button>
+        </form>
+      </div>
+
+      <!-- Step 2: Payment Method -->
+      <div id="stepPayment" class="checkout-step hidden">
+        <h3>Choose Payment Method</h3>
+        <div class="payment-methods">
+          <label><input type="radio" name="method" value="card" checked> Debit / Credit Card</label>
+          <label><input type="radio" name="method" value="upi"> UPI</label>
+          <label><input type="radio" name="method" value="netbanking"> Net Banking</label>
+        </div>
+
+        <form id="paymentForm" class="payment-form">
+          <!-- Card Payment -->
+          <div id="cardForm" class="payment-form">
+            <div class="form-group">
+              <label>Card Number</label>
+              <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Expiry</label>
+                <input type="text" placeholder="MM/YY" maxlength="5" id="expiry">
+              </div>
+              <div class="form-group">
+                <label>CVV</label>
+                <input type="text" placeholder="123" maxlength="3" id="cvv">
+              </div>
+            </div>
+          </div>
+
+          <!-- UPI Payment -->
+          <div id="upiForm" class="payment-form hidden">
+            <div class="form-group">
+              <label>UPI ID</label>
+              <input type="text" id="upiId" placeholder="yourname@upi">
+            </div>
+          </div>
+
+          <!-- Net Banking -->
+          <div id="netbankingForm" class="payment-form hidden">
+            <div class="form-group">
+              <label>Select Bank</label>
+              <select id="bankSelect">
+                <option value="">Choose your bank</option>
+                <option value="sbi">State Bank of India</option>
+                <option value="hdfc">HDFC Bank</option>
+                <option value="icici">ICICI Bank</option>
+                <option value="axis">Axis Bank</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn primary">
+            <i class="fa-solid fa-credit-card"></i> Pay Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="success-modal">
+    <div class="success-content">
+      <div class="checkmark-circle">
+        <div class="checkmark-circle-bg"></div>
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle cx="26" cy="26" r="25"/>
+          <path class="checkmark-check" d="M18 28l6 6 10-12"/>
+        </svg>
+      </div>
+      <h2>Order Confirmed!</h2>
+      <p>Your order has been placed successfully 💖</p>
+      <div class="success-details">
+        <p><strong>Order Summary:</strong></p>
+        <p id="orderProduct"></p>
+        <p id="orderQuantity"></p>
+        <p><strong>Total Amount:</strong> <span id="paidAmount">₹2,099</span></p>
+        <p><strong>Shipping To:</strong> <span id="shippingDetails"></span></p>
+      </div>
+      <div class="success-actions">
+        <button class="btn primary" id="doneBtn">Done</button>
+        <a href="products.html" class="btn secondary">View All Products</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add this before the payment modal -->
+  <div id="productDetailModal" class="modal">
+    <div class="modal-content product-modal">
+      <button class="close-modal" id="closeProductModal">&times;</button>
+      <div class="modal-product-content">
+        <div class="modal-product-gallery">
+          <img id="modalProductImage" src="" alt="Product Image">
+        </div>
+        <div class="modal-product-info">
+          <h2 id="modalDetailTitle"></h2>
+          <div class="price">
+            <span class="amount" id="modalDetailPrice"></span>
+            <span class="unit">Per pack</span>
+          </div>
+          <div class="product-actions">
+            <div class="quantity">
+              <button class="qty-btn" onclick="updateDetailQty(-1)"><i class="fa-solid fa-minus"></i></button>
+              <input type="number" value="1" min="1" id="detailQty">
+              <button class="qty-btn" onclick="updateDetailQty(1)"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button class="btn primary buy-now-detail"><i class="fa-solid fa-shopping-bag"></i> Buy Now</button>
+            <button class="btn secondary"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-description">
+            <p id="modalDetailDesc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update the shop collection cards to include data attributes -->
+  <section class="shop-collection">
+    <h2>Shop More Collections</h2>
+    <div class="product-grid">
+      <div class="product-card" data-product='{"name": "Crystal Beads Collection", "price": "1899", "image": "productimages/crystalheart.jpg", "description": "Elevate your jewelry designs with our premium Crystal Beads Collection. Each bead is expertly cut to maximize brilliance and sparkle, perfect for creating statement pieces that catch the light beautifully. Ideal for necklaces, bracelets, and elegant accessories."}'>
+        <img src="productimages/crystalheart.jpg" alt="Crystal Beads Collection">
+        <div class="card-content">
+          <h3>Crystal Beads Collection</h3>
+          <div class="price">₹1,899</div>
+          <button class="btn primary view-product">View Details</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product='{"name": "Pearl Beads Set", "price": "2299", "image": "productimages/rosegold.jpg", "description": "Our luxurious Pearl Beads Set features high-quality simulated pearls with a lustrous finish. Each bead is carefully crafted to achieve the perfect balance of elegance and durability. Perfect for bridal accessories, classic jewelry pieces, or adding timeless sophistication to any design."}'>
+        <img src="productimages/rosegold.jpg" alt="Pearl Beads Set">
+        <div class="card-content">
+          <h3>Pearl Beads Set</h3>
+          <div class="price">₹2,299</div>
+          <button class="btn primary view-product">View Details</button>
+        </div>
+      </div>
+
+      <div class="product-card" data-product='{"name": "Gold Plated Beads", "price": "2499", "image": "productimages/rosegold.jpg", "description": "Transform your jewelry creations with our premium Gold Plated Beads. Each bead features a durable gold plating that maintains its luxurious shine. These versatile beads are perfect for creating high-end jewelry pieces that make a lasting impression."}'>
+        <img src="productimages/rosegold.jpg" alt="Gold Plated Beads">
+        <div class="card-content">
+          <h3>Gold Plated Beads</h3>
+          <div class="price">₹2,499</div>
+          <button class="btn primary view-product">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize UI Elements
+        const modal = document.getElementById('paymentModal');
+        const buyNowBtn = document.querySelector('.buy-now');
+        const closeBtn = document.querySelector('.close-modal');
+        const paymentForm = document.getElementById('paymentForm');
+        let basePrice = 2099; // Price in rupees
+        const stepDetails = document.getElementById('stepDetails');
+        const stepPayment = document.getElementById('stepPayment');
+        const continueBtn = document.getElementById('continueToPayment');
+        const methodRadios = document.querySelectorAll('input[name="method"]');
+        const cardForm = document.getElementById('cardForm');
+        const upiForm = document.getElementById('upiForm');
+        const netForm = document.getElementById('netbankingForm');
+
+        // Update quantity
+        window.updateQty = function(change) {
+            const qtyInput = document.getElementById('qty');
+            const currentQty = parseInt(qtyInput.value) || 1;
+            const newQty = Math.max(1, currentQty + change);
+            qtyInput.value = newQty;
+            updateModalTotals();
+        }
+
+        // Manual quantity input handling
+        const qtyInput = document.getElementById('qty');
+        if (qtyInput) {
+            qtyInput.addEventListener('input', function(e) {
+                const value = parseInt(e.target.value);
+                if (value && value > 0) {
+                    updateModalTotals();
+                } else {
+                    e.target.value = 1;
+                }
+            });
+        }
+
+        // Update modal totals
+        function updateModalTotals() {
+            const quantity = parseInt(document.getElementById('qty').value) || 1;
+            const total = basePrice * quantity;
+            const modalQuantity = document.getElementById('modalQuantity');
+            const modalTotal = document.getElementById('modalTotal');
+            
+            if (modalQuantity) modalQuantity.textContent = quantity;
+            if (modalTotal) modalTotal.textContent = `₹${total.toLocaleString()}`;
+        }
+
+        // Show modal function
+        function showModal(e) {
+          if (e) e.preventDefault();
+          if (modal) {
+            const button = e.target.closest('.buy-now');
+            const productName = button.dataset.product || 'Rose Gold Glass Beads Collection';
+            const productPrice = button.dataset.price || 2099;
+            
+            // Update modal product details
+            document.getElementById('modalProductName').textContent = productName;
+            document.getElementById('modalPrice').textContent = `₹${productPrice}`;
+            basePrice = parseInt(productPrice);
+            
+            document.body.style.overflow = 'hidden';
+            modal.style.display = 'flex';
+            updateModalTotals();
+            
+            if (stepPayment) stepPayment.classList.add('hidden');
+            if (stepDetails) stepDetails.classList.remove('hidden');
+          }
+        }
+
+        // Hide modal function
+        function hideModal(e) {
+            if (e) e.preventDefault();
+            if (modal) {
+                document.body.style.overflow = '';
+                modal.style.display = 'none';
+            }
+        }
+
+        // Attach event listeners
+        if (buyNowBtn) {
+            buyNowBtn.addEventListener('click', showModal);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', hideModal);
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                hideModal();
+            }
+        });
+
+        // Handle payment method switching
+        if (methodRadios.length > 0) {
+            methodRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (cardForm) cardForm.classList.add('hidden');
+                    if (upiForm) upiForm.classList.add('hidden');
+                    if (netForm) netForm.classList.add('hidden');
+
+                    if (radio.value === 'card' && cardForm) cardForm.classList.remove('hidden');
+                    if (radio.value === 'upi' && upiForm) upiForm.classList.remove('hidden');
+                    if (radio.value === 'netbanking' && netForm) netForm.classList.remove('hidden');
+                });
+            });
+        }
+
+        // Handle continue to payment button
+        if (continueBtn) {
+            continueBtn.addEventListener('click', () => {
+                const fullName = document.getElementById('fullName')?.value.trim();
+                const phone = document.getElementById('phone')?.value.trim();
+                const email = document.getElementById('email')?.value.trim();
+                const address = document.getElementById('address')?.value.trim();
+                
+                if (!fullName || !phone || !email || !address) {
+                    alert('Please fill in all your details before continuing.');
+                    return;
+                }
+                
+                if (stepDetails) stepDetails.classList.add('hidden');
+                if (stepPayment) stepPayment.classList.remove('hidden');
+            });
+        }
+
+        // Handle payment form submission
+        if (paymentForm) {
+            paymentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                hideModal();
+
+                // Get order details
+                const fullName = document.getElementById('fullName').value;
+                const address = document.getElementById('address').value;
+                const quantity = document.getElementById('qty').value;
+                const productName = document.getElementById('modalProductName').innerText;
+                const totalAmount = document.getElementById('modalTotal').innerText;
+
+                // Update success modal with order details
+                document.getElementById('orderProduct').textContent = `Product: ${productName}`;
+                document.getElementById('orderQuantity').textContent = `Quantity: ${quantity}`;
+                document.getElementById('paidAmount').textContent = totalAmount;
+                document.getElementById('shippingDetails').textContent = `${fullName}, ${address}`;
+
+                // Show success modal
+                const successModal = document.getElementById('successModal');
+                if (successModal) {
+                    successModal.style.display = 'flex';
+                    successModal.classList.add('show');
+                }
+
+                // Reset checkout steps for next time
+                setTimeout(() => {
+                    if (stepPayment) stepPayment.classList.add('hidden');
+                    if (stepDetails) stepDetails.classList.remove('hidden');
+                    document.getElementById('detailsForm')?.reset();
+                    document.getElementById('paymentForm')?.reset();
+                }, 1000);
+            });
+        }
+
+        // Handle Done button click in success modal
+        const doneBtn = document.getElementById('doneBtn');
+        if (doneBtn) {
+            doneBtn.addEventListener('click', function() {
+                const successModal = document.getElementById('successModal');
+                if (successModal) {
+                    successModal.style.display = 'none';
+                    successModal.classList.remove('show');
+                }
+            });
+        }
+
+        // Format card number input
+        const cardNumberInput = document.getElementById('cardNumber');
+        if (cardNumberInput) {
+            cardNumberInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s/g, '');
+                let formattedValue = value.replace(/(\d{4})/g, '$1 ').trim();
+                e.target.value = formattedValue;
+            });
+        }
+
+        // Format expiry date input
+        const expiryInput = document.getElementById('expiry');
+        if (expiryInput) {
+            expiryInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.slice(0,2) + '/' + value.slice(2);
+                }
+                e.target.value = value;
+            });
+        }
+
+        // Add product detail modal functionality
+        const productDetailModal = document.getElementById('productDetailModal');
+        const closeProductModal = document.getElementById('closeProductModal');
+        const viewButtons = document.querySelectorAll('.view-product');
+        const buyNowDetailBtn = document.querySelector('.buy-now-detail');
+
+        function showProductDetail(productData) {
+          document.getElementById('modalProductImage').src = productData.image;
+          document.getElementById('modalDetailTitle').textContent = productData.name;
+          document.getElementById('modalDetailPrice').textContent = `₹${productData.price}`;
+          document.getElementById('modalDetailDesc').textContent = productData.description;
+          document.getElementById('detailQty').value = 1;
+          productDetailModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        }
+
+        viewButtons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            const card = e.target.closest('.product-card');
+            const productData = JSON.parse(card.dataset.product);
+            showProductDetail(productData);
+          });
+        });
+
+        closeProductModal.addEventListener('click', () => {
+          productDetailModal.style.display = 'none';
+          document.body.style.overflow = '';
+        });
+
+        // Handle buy now from product detail modal
+        buyNowDetailBtn.addEventListener('click', () => {
+          const productName = document.getElementById('modalDetailTitle').textContent;
+          const price = document.getElementById('modalDetailPrice').textContent.replace('₹', '');
+          const quantity = document.getElementById('detailQty').value;
+          
+          // Update payment modal details
+          document.getElementById('modalProductName').textContent = productName;
+          document.getElementById('modalPrice').textContent = `₹${price}`;
+          document.getElementById('qty').value = quantity;
+          basePrice = parseInt(price);
+          
+          // Hide product detail modal and show payment modal
+          productDetailModal.style.display = 'none';
+          showModal({ preventDefault: () => {} });
+        });
+
+        window.updateDetailQty = function(change) {
+          const qtyInput = document.getElementById('detailQty');
+          const currentQty = parseInt(qtyInput.value) || 1;
+          qtyInput.value = Math.max(1, currentQty + change);
+        };
+
+        // Add thumbnail functionality
+        window.changeImage = function(thumbnail) {
+          // Update main image
+          const mainImage = document.getElementById('mainImage');
+          mainImage.src = thumbnail.src;
+          mainImage.alt = thumbnail.alt;
+
+          // Update active state
+          document.querySelectorAll('.thumbnail-list img').forEach(thumb => {
+              thumb.classList.remove('active');
+          });
+          thumbnail.classList.add('active');
+
+          // Optional: Add fade effect
+          mainImage.style.opacity = '0';
+          setTimeout(() => {
+              mainImage.style.opacity = '1';
+          }, 50);
+        }
+    });
+  </script>
+</body>
+</html>

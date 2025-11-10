@@ -1,0 +1,36 @@
+.payment-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(5px) !important;
+  display: none !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  z-index: 1000 !important;
+  overflow-y: auto !important;
+  padding: 2rem 0 !important;
+}
+
+.payment-modal .modal-content {
+  background: #fff !important;
+  border-radius: 20px !important;
+  padding: 2rem !important;
+  position: relative !important;
+  width: 90% !important;
+  max-width: 600px !important;
+  margin: auto !important;
+  max-height: none !important;
+}
+
+.checkout-step .btn.primary {
+  position: sticky !important;
+  bottom: 0 !important;
+  margin-top: 1.5rem !important;
+  width: 100% !important;
+  background: linear-gradient(135deg, #e56ee6 0%, #ff9ee9 100%) !important;
+  box-shadow: 0 -5px 15px rgba(229, 110, 230, 0.1) !important;
+  z-index: 1 !important;
+}
