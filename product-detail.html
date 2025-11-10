@@ -274,15 +274,49 @@
         border: 2px solid rgba(229, 110, 230, 0.2);
         text-decoration: none;
     }
+    /* logo image styling copied from index.html */
+    .navbar .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #3d2a54;
+    }
+
+    .navbar .logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .navbar .logo .logo-icon img,
+    .navbar .logo .logo-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .navbar .logo span {
+      line-height: 1;
+      font-size: 1.1rem;
+      color: #d66ad6;
+    }
   </style>
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">Beads Z</div>
+    <div class="logo">
+      <span class="logo-icon" aria-hidden="true">
+        <img src="assets/logo.svg" alt="">
+      </span>
+      <span>Beads Z</span>
+    </div>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="/products.html">Collections</a>
-      <a href="/about.html">About</a>
+      <a href="about.html">About</a>
     </nav>
     <div class="icons">
       <button class="icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
